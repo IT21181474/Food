@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.kotlin_bill.models.EmployeeModel
+import com.example.kotlin_bill.models.BankModel
 import com.example.kotlin_bill.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class InsertionActivity : AppCompatActivity() {
+class BankInsertionActivity : AppCompatActivity() {
     //initializing variables
 
     private lateinit var etBankName: EditText
@@ -23,7 +23,7 @@ class InsertionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_insertion)
+        setContentView(R.layout.activity_bank_insertion)
 
         etBankName = findViewById(R.id.etBankName)
         etBankBranch = findViewById(R.id.etBankBranch)
@@ -59,7 +59,7 @@ class InsertionActivity : AppCompatActivity() {
         //genrate unique ID
         val bankId = dbRef.push().key!!
 
-        val employee = EmployeeModel(bankId, bankName, bankBranch, bankAmount)
+        val employee = BankModel(bankId, bankName, bankBranch, bankAmount)
 
         dbRef.child(bankId).setValue(employee)
             .addOnCompleteListener {
