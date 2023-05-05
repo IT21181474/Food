@@ -7,16 +7,16 @@
     tools:context=".activities.CardDetailsActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="507dp"
-        android:layout_height="227dp"
-        android:src="@drawable/top_login"
+        android:id="@+id/imageView4"
+        android:layout_width="410dp"
+        android:layout_height="518dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="448dp"
+        android:src="@drawable/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="147dp"
         android:text="Delete"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/darkred"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnUpdate"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="147dp"
         android:text="Update"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/darkyello"
         app:layout_constraintEnd_toStartOf="@+id/btnDelete"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +88,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/divider_grey"
+                android:background="@color/wintergreen"
                 android:visibility="invisible">
 
                 <TextView
@@ -139,7 +139,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/light_pink">
+                android:background="@color/wintergreen">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -189,7 +189,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/light_pink">
+                android:background="@color/wintergreen">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -243,7 +243,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/light_pink">
+                android:background="@color/wintergreen">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -297,7 +297,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:background="@color/light_pink">
+                android:background="@color/wintergreen">
 
                 <TextView
                     android:layout_width="match_parent"

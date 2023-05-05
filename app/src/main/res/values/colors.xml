@@ -12,7 +12,11 @@
     <color name="pink">#DA00FF</color>
     <color name="light_pink">#F5B8FF</color>
     <color name="green">#00FF00</color>
+    <color name="darkyello">#FFC107</color>
+    <color name="darkred">#A60000</color>
+    <color name="wintergreen">#679289</color>
     <color name="Darkgreen">#E41B8E00</color>
+    <color name="btngreen">#A193FF7A</color>
     <color name="lighBlue">#3F51B5</color>
     <color name="divider_grey">#9C9C9C</color>
 
