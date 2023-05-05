@@ -41,7 +41,7 @@ class BankFetchingActivity : AppCompatActivity() {
         empRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
-        dbRef = FirebaseDatabase.getInstance().getReference("BankDB")
+        dbRef = FirebaseDatabase.getInstance().getReference("PaymentDB")
 
         dbRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -64,6 +64,7 @@ class BankFetchingActivity : AppCompatActivity() {
                             intent.putExtra("bankName", empList[position].bankName)
                             intent.putExtra("bankBranch", empList[position].bankBranch)
                             intent.putExtra("bankAmount", empList[position].bankAmount)
+                            intent.putExtra("cardCvv", empList[position].cardCvv)
                             startActivity(intent)
                         }
 

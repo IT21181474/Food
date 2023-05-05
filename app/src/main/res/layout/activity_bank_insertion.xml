@@ -31,6 +31,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="169dp"
@@ -78,6 +80,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etBankBranch" />
+
+    <EditText
+        android:id="@+id/etCardCvv"
+        android:layout_width="103dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:hint="CVV"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="346dp" />
 
     <Button
         android:id="@+id/btnSave"

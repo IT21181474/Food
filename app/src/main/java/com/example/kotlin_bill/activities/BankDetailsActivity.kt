@@ -18,6 +18,7 @@ class BankDetailsActivity : AppCompatActivity() {
     private lateinit var tvBankName: TextView
     private lateinit var tvBankBranch: TextView
     private lateinit var tvBankAmount: TextView
+    private lateinit var tvCardCvv: TextView
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
 
@@ -47,11 +48,11 @@ class BankDetailsActivity : AppCompatActivity() {
     private fun deleteRecord(
         id: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("BankDB").child(id)
+        val dbRef = FirebaseDatabase.getInstance().getReference("PaymentDB").child(id)
         val mTask = dbRef.removeValue()
 
         mTask.addOnSuccessListener {
-            Toast.makeText(this, "Employee data deleted", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Card data deleted", Toast.LENGTH_LONG).show()
 
             val intent = Intent(this, BankFetchingActivity::class.java)
             finish()
@@ -70,6 +71,7 @@ class BankDetailsActivity : AppCompatActivity() {
         tvBankName = findViewById(R.id.tvBankName)
         tvBankBranch = findViewById(R.id.tvBankBranch)
         tvBankAmount = findViewById(R.id.tvBankAmount)
+        tvCardCvv = findViewById(R.id.tvCardCvv)
 
         btnUpdate = findViewById(R.id.btnUpdate)
         btnDelete = findViewById(R.id.btnDelete)
@@ -81,6 +83,7 @@ class BankDetailsActivity : AppCompatActivity() {
         tvBankName.text = intent.getStringExtra("bankName")
         tvBankBranch.text = intent.getStringExtra("bankBranch")
         tvBankAmount.text = intent.getStringExtra("bankAmount")
+        tvCardCvv.text = intent.getStringExtra("cardCvv")
 
     }
 
@@ -98,6 +101,7 @@ class BankDetailsActivity : AppCompatActivity() {
         val etBankName = mDialogView.findViewById<EditText>(R.id.etBankName)
         val etBankBranch = mDialogView.findViewById<EditText>(R.id.etBankBranch)
         val etBankAmount = mDialogView.findViewById<EditText>(R.id.etBankAmount)
+        val etCardCvv = mDialogView.findViewById<EditText>(R.id.etCardCvv)
 
         val btnUpdateData = mDialogView.findViewById<Button>(R.id.btnUpdateData)
 
@@ -105,6 +109,7 @@ class BankDetailsActivity : AppCompatActivity() {
         etBankName.setText(intent.getStringExtra("bankName").toString())
         etBankBranch.setText(intent.getStringExtra("bankBranch").toString())
         etBankAmount.setText(intent.getStringExtra("bankAmount").toString())
+        etCardCvv.setText(intent.getStringExtra("cardCvv").toString())
 
         mDialog.setTitle("Updating $bankName Record")
 
@@ -116,15 +121,17 @@ class BankDetailsActivity : AppCompatActivity() {
                 bankId,
                 etBankName.text.toString(),
                 etBankBranch.text.toString(),
-                etBankAmount.text.toString()
+                etBankAmount.text.toString(),
+                etCardCvv.text.toString()
             )
 
-            Toast.makeText(applicationContext, "Employee Data Updated", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Card Data Updated", Toast.LENGTH_LONG).show()
 
             //we are setting updated data to our textviews
             tvBankName.text = etBankName.text.toString()
             tvBankBranch.text = etBankBranch.text.toString()
             tvBankAmount.text = etBankAmount.text.toString()
+            tvCardCvv.text = etCardCvv.text.toString()
 
             alertDialog.dismiss()
 
@@ -136,10 +143,11 @@ class BankDetailsActivity : AppCompatActivity() {
         id: String,
         name: String,
         age: String,
-        salary: String
+        salary: String,
+        cvv: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("BankDB").child(id)
-        val empInfo = BankModel(id, name, age, salary)
+        val dbRef = FirebaseDatabase.getInstance().getReference("PaymentDB").child(id)
+        val empInfo = BankModel(id, name, age, salary, cvv)
         dbRef.setValue(empInfo)
     }
 }

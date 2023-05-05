@@ -16,6 +16,7 @@ class BankInsertionActivity : AppCompatActivity() {
     private lateinit var etBankName: EditText
     private lateinit var etBankBranch: EditText
     private lateinit var etBankAmount: EditText
+    private lateinit var etCardCvv: EditText
     private lateinit var btnSaveData: Button
 
     private lateinit var dbRef: DatabaseReference
@@ -28,9 +29,10 @@ class BankInsertionActivity : AppCompatActivity() {
         etBankName = findViewById(R.id.etBankName)
         etBankBranch = findViewById(R.id.etBankBranch)
         etBankAmount = findViewById(R.id.etBankAmount)
+        etCardCvv = findViewById(R.id.etCardCvv)
         btnSaveData = findViewById(R.id.btnSave)
 
-        dbRef = FirebaseDatabase.getInstance().getReference("BankDB")
+        dbRef = FirebaseDatabase.getInstance().getReference("PaymentDB")
 
         btnSaveData.setOnClickListener {
             saveEmployeeData()
@@ -44,6 +46,7 @@ class BankInsertionActivity : AppCompatActivity() {
         val bankName = etBankName.text.toString()
         val bankBranch = etBankBranch.text.toString()
         val bankAmount = etBankAmount.text.toString()
+        val cardCvv = etCardCvv.text.toString()
 
         //validation
         if (bankName.isEmpty()) {
@@ -55,11 +58,14 @@ class BankInsertionActivity : AppCompatActivity() {
         if (bankAmount.isEmpty()) {
             etBankAmount.error = "Please enter salary"
         }
+        if (cardCvv.isEmpty()) {
+            etBankAmount.error = "Please enter cvv"
+        }
 
         //genrate unique ID
         val bankId = dbRef.push().key!!
 
-        val employee = BankModel(bankId, bankName, bankBranch, bankAmount)
+        val employee = BankModel(bankId, bankName, bankBranch, bankAmount, cardCvv)
 
         dbRef.child(bankId).setValue(employee)
             .addOnCompleteListener {
@@ -69,6 +75,7 @@ class BankInsertionActivity : AppCompatActivity() {
                 etBankName.text.clear()
                 etBankBranch.text.clear()
                 etBankAmount.text.clear()
+                etCardCvv.text.clear()
 
             }.addOnFailureListener { err ->
                 Toast.makeText(this,"Error ${err.message}",Toast.LENGTH_SHORT).show()
