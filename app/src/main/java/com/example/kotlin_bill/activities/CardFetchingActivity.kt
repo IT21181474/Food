@@ -8,35 +8,35 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_bill.R
-import com.example.kotlin_bill.adapters.BankAdapter
-import com.example.kotlin_bill.models.BankModel
+import com.example.kotlin_bill.adapters.CardAdapter
+import com.example.kotlin_bill.models.CardModel
 import com.google.firebase.database.*
 
-class BankFetchingActivity : AppCompatActivity() {
+class CardFetchingActivity : AppCompatActivity() {
 
     private lateinit var empRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
-    private lateinit var empList: ArrayList<BankModel>
+    private lateinit var empList: ArrayList<CardModel>
     private lateinit var dbRef: DatabaseReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bank_fetching)
+        setContentView(R.layout.activity_card_fetching)
 
         empRecyclerView = findViewById(R.id.rvEmp)
         empRecyclerView.layoutManager = LinearLayoutManager(this)
         empRecyclerView.setHasFixedSize(true)
         tvLoadingData = findViewById(R.id.tvLoadingData)
 
-        empList = arrayListOf<BankModel>()
+        empList = arrayListOf<CardModel>()
 
-        getEmployeeData()
+        getCardData()
 
 
     }
 
-    private fun getEmployeeData() {
+    private fun getCardData() {
 
         empRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
@@ -48,16 +48,16 @@ class BankFetchingActivity : AppCompatActivity() {
                empList.clear()
                 if (snapshot.exists()){
                     for (empSnap in snapshot.children){
-                        val empData = empSnap.getValue(BankModel::class.java)
+                        val empData = empSnap.getValue(CardModel::class.java)
                         empList.add(empData!!)
                     }
-                    val mAdapter = BankAdapter(empList)
+                    val mAdapter = CardAdapter(empList)
                     empRecyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListener(object : BankAdapter.onItemClickListener{
+                    mAdapter.setOnItemClickListener(object : CardAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
-                            val intent = Intent(this@BankFetchingActivity, BankDetailsActivity::class.java)
+                            val intent = Intent(this@CardFetchingActivity, CardDetailsActivity::class.java)
 
                             //put extra(passing data to another activity)
                             intent.putExtra("cardId", empList[position].cardId)

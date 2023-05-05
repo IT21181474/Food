@@ -9,10 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.kotlin_bill.R
-import com.example.kotlin_bill.models.BankModel
+import com.example.kotlin_bill.models.CardModel
 import com.google.firebase.database.FirebaseDatabase
 
-class BankDetailsActivity : AppCompatActivity() {
+class CardDetailsActivity : AppCompatActivity() {
 
     private lateinit var tvCardId: TextView
     private lateinit var tvCardName: TextView
@@ -25,7 +25,7 @@ class BankDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bank_details)
+        setContentView(R.layout.activity_card_details)
 
         initView()
         setValuesToViews()
@@ -54,7 +54,7 @@ class BankDetailsActivity : AppCompatActivity() {
         mTask.addOnSuccessListener {
             Toast.makeText(this, "Card data deleted", Toast.LENGTH_LONG).show()
 
-            val intent = Intent(this, BankFetchingActivity::class.java)
+            val intent = Intent(this, CardFetchingActivity::class.java)
             finish()
             startActivity(intent)
         }.addOnFailureListener{ error ->
@@ -94,7 +94,7 @@ class BankDetailsActivity : AppCompatActivity() {
     ) {
         val mDialog = AlertDialog.Builder(this)
         val inflater = layoutInflater
-        val mDialogView = inflater.inflate(R.layout.bank_update_dialog, null)
+        val mDialogView = inflater.inflate(R.layout.card_update_dialog, null)
 
         mDialog.setView(mDialogView)
 
@@ -117,7 +117,7 @@ class BankDetailsActivity : AppCompatActivity() {
         alertDialog.show()
 
         btnUpdateData.setOnClickListener {
-            updateEmpData(
+            updateCardData(
                 cardId,
                 etCardName.text.toString(),
                 etCardNumber.text.toString(),
@@ -139,7 +139,7 @@ class BankDetailsActivity : AppCompatActivity() {
 
     }
 
-    private fun updateEmpData(
+    private fun updateCardData(
         id: String,
         name: String,
         age: String,
@@ -147,7 +147,7 @@ class BankDetailsActivity : AppCompatActivity() {
         cvv: String
     ){
         val dbRef = FirebaseDatabase.getInstance().getReference("PaymentDB").child(id)
-        val empInfo = BankModel(id, name, age, salary, cvv)
-        dbRef.setValue(empInfo)
+        val cardInfo = CardModel(id, name, age, salary, cvv)
+        dbRef.setValue(cardInfo)
     }
 }

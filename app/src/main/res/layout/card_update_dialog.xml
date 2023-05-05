@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Card Number" />
+        android:hint="Card Number"
+        android:maxLength="16"/>
 
     <EditText
         android:id="@+id/etCardDate"
@@ -28,7 +29,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Exp Date"
-        android:inputType="textPersonName" />
+        android:inputType="date" />
 
     <EditText
         android:id="@+id/etCardCvv"
@@ -37,6 +38,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="CVV"
+        android:maxLength="3"
         android:inputType="textPersonName" />
 
     <Button

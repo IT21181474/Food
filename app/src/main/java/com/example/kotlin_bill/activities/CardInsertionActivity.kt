@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.kotlin_bill.models.BankModel
+import com.example.kotlin_bill.models.CardModel
 import com.example.kotlin_bill.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class BankInsertionActivity : AppCompatActivity() {
+class CardInsertionActivity : AppCompatActivity() {
     //initializing variables
 
     private lateinit var etCardName: EditText
@@ -24,7 +24,7 @@ class BankInsertionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bank_insertion)
+        setContentView(R.layout.activity_card_insertion)
 
         etCardName = findViewById(R.id.etCardName)
         etCardNumber = findViewById(R.id.etCardNumber)
@@ -35,12 +35,12 @@ class BankInsertionActivity : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference("PaymentDB")
 
         btnSaveData.setOnClickListener {
-            saveEmployeeData()
+            saveCardData()
         }
 
     }
 
-    private fun saveEmployeeData() {
+    private fun saveCardData() {
 
         //Geting Values
         val cardName = etCardName.text.toString()
@@ -65,9 +65,9 @@ class BankInsertionActivity : AppCompatActivity() {
         //genrate unique ID
         val cardId = dbRef.push().key!!
 
-        val employee = BankModel(cardId, cardName, cardNumber, cardDate, cardCvv)
+        val card = CardModel(cardId, cardName, cardNumber, cardDate, cardCvv)
 
-        dbRef.child(cardId).setValue(employee)
+        dbRef.child(cardId).setValue(card)
             .addOnCompleteListener {
                 Toast.makeText(this,"data insert successfully",Toast.LENGTH_SHORT).show()
 

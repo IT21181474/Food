@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_bill.R
-import com.example.kotlin_bill.models.BankModel
+import com.example.kotlin_bill.models.CardModel
 
-class BankAdapter(private val empList: ArrayList<BankModel>) :
-    RecyclerView.Adapter<BankAdapter.ViewHolder>() {
+class CardAdapter(private val empList: ArrayList<CardModel>) :
+    RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 
@@ -22,7 +22,7 @@ class BankAdapter(private val empList: ArrayList<BankModel>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.bank_list_item, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_list_item, parent, false)
         return ViewHolder(itemView, mListener)
     }
 
