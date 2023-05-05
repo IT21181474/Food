@@ -30,7 +30,7 @@ class InsertionActivity : AppCompatActivity() {
         etEmpSalary = findViewById(R.id.etEmpSalary)
         btnSaveData = findViewById(R.id.btnSave)
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Employees")
+        dbRef = FirebaseDatabase.getInstance().getReference("BankDB")
 
         btnSaveData.setOnClickListener {
             saveEmployeeData()

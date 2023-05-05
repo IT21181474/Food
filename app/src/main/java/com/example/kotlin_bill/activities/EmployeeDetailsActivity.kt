@@ -47,7 +47,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
     private fun deleteRecord(
         id: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("Employees").child(id)
+        val dbRef = FirebaseDatabase.getInstance().getReference("BankDB").child(id)
         val mTask = dbRef.removeValue()
 
         mTask.addOnSuccessListener {
@@ -138,7 +138,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         age: String,
         salary: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("Employees").child(id)
+        val dbRef = FirebaseDatabase.getInstance().getReference("BankDB").child(id)
         val empInfo = EmployeeModel(id, name, age, salary)
         dbRef.setValue(empInfo)
     }
