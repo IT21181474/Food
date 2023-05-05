@@ -28,7 +28,7 @@ class BankAdapter(private val empList: ArrayList<BankModel>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentEmp = empList[position]
-        holder.tvBankName.text = currentEmp.bankName
+        holder.tvCardName.text = currentEmp.cardName
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +37,7 @@ class BankAdapter(private val empList: ArrayList<BankModel>) :
 
     class ViewHolder(itemView: View, clickListener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
-        val tvBankName : TextView = itemView.findViewById(R.id.tvBankName)
+        val tvCardName : TextView = itemView.findViewById(R.id.tvCardName)
 
         init {
             itemView.setOnClickListener {

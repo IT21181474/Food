@@ -13,9 +13,9 @@ import com.google.firebase.database.FirebaseDatabase
 class BankInsertionActivity : AppCompatActivity() {
     //initializing variables
 
-    private lateinit var etBankName: EditText
-    private lateinit var etBankBranch: EditText
-    private lateinit var etBankAmount: EditText
+    private lateinit var etCardName: EditText
+    private lateinit var etCardNumber: EditText
+    private lateinit var etCardDate: EditText
     private lateinit var etCardCvv: EditText
     private lateinit var btnSaveData: Button
 
@@ -26,9 +26,9 @@ class BankInsertionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bank_insertion)
 
-        etBankName = findViewById(R.id.etBankName)
-        etBankBranch = findViewById(R.id.etBankBranch)
-        etBankAmount = findViewById(R.id.etBankAmount)
+        etCardName = findViewById(R.id.etCardName)
+        etCardNumber = findViewById(R.id.etCardNumber)
+        etCardDate = findViewById(R.id.etCardDate)
         etCardCvv = findViewById(R.id.etCardCvv)
         btnSaveData = findViewById(R.id.btnSave)
 
@@ -43,38 +43,38 @@ class BankInsertionActivity : AppCompatActivity() {
     private fun saveEmployeeData() {
 
         //Geting Values
-        val bankName = etBankName.text.toString()
-        val bankBranch = etBankBranch.text.toString()
-        val bankAmount = etBankAmount.text.toString()
+        val cardName = etCardName.text.toString()
+        val cardNumber = etCardNumber.text.toString()
+        val cardDate = etCardDate.text.toString()
         val cardCvv = etCardCvv.text.toString()
 
         //validation
-        if (bankName.isEmpty()) {
-            etBankName.error = "Please enter name"
+        if (cardName.isEmpty()) {
+            etCardName.error = "Please enter card Name"
         }
-        if (bankBranch.isEmpty()) {
-            etBankBranch.error = "Please enter age"
+        if (cardNumber.isEmpty()) {
+            etCardNumber.error = "Please enter card Number"
         }
-        if (bankAmount.isEmpty()) {
-            etBankAmount.error = "Please enter salary"
+        if (cardDate.isEmpty()) {
+            etCardDate.error = "Please enter card Date"
         }
         if (cardCvv.isEmpty()) {
-            etBankAmount.error = "Please enter cvv"
+            etCardDate.error = "Please enter cvv"
         }
 
         //genrate unique ID
-        val bankId = dbRef.push().key!!
+        val cardId = dbRef.push().key!!
 
-        val employee = BankModel(bankId, bankName, bankBranch, bankAmount, cardCvv)
+        val employee = BankModel(cardId, cardName, cardNumber, cardDate, cardCvv)
 
-        dbRef.child(bankId).setValue(employee)
+        dbRef.child(cardId).setValue(employee)
             .addOnCompleteListener {
                 Toast.makeText(this,"data insert successfully",Toast.LENGTH_SHORT).show()
 
                 //clear data after insert
-                etBankName.text.clear()
-                etBankBranch.text.clear()
-                etBankAmount.text.clear()
+                etCardName.text.clear()
+                etCardNumber.text.clear()
+                etCardDate.text.clear()
                 etCardCvv.text.clear()
 
             }.addOnFailureListener { err ->

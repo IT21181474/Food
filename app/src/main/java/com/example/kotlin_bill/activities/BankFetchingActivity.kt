@@ -60,10 +60,10 @@ class BankFetchingActivity : AppCompatActivity() {
                             val intent = Intent(this@BankFetchingActivity, BankDetailsActivity::class.java)
 
                             //put extra(passing data to another activity)
-                            intent.putExtra("bankId", empList[position].bankId)
-                            intent.putExtra("bankName", empList[position].bankName)
-                            intent.putExtra("bankBranch", empList[position].bankBranch)
-                            intent.putExtra("bankAmount", empList[position].bankAmount)
+                            intent.putExtra("cardId", empList[position].cardId)
+                            intent.putExtra("cardName", empList[position].cardName)
+                            intent.putExtra("cardNumber", empList[position].cardNumber)
+                            intent.putExtra("cardDate", empList[position].cardDate)
                             intent.putExtra("cardCvv", empList[position].cardCvv)
                             startActivity(intent)
                         }

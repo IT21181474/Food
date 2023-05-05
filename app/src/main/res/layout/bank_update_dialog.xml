@@ -6,28 +6,28 @@
     android:padding="10dp">
 
     <EditText
-        android:id="@+id/etBankName"
+        android:id="@+id/etCardName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Employee Name"
+        android:hint="Card Name"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/etBankBranch"
+        android:id="@+id/etCardNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Employee Age" />
+        android:hint="Card Number" />
 
     <EditText
-        android:id="@+id/etBankAmount"
+        android:id="@+id/etCardDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Employee Salary"
+        android:hint="Exp Date"
         android:inputType="textPersonName" />
 
     <EditText
