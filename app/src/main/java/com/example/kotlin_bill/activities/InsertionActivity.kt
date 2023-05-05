@@ -14,7 +14,7 @@ class InsertionActivity : AppCompatActivity() {
     //initializing variables
 
     private lateinit var etBankName: EditText
-    private lateinit var etEmpAge: EditText
+    private lateinit var etBankBranch: EditText
     private lateinit var etBankAmount: EditText
     private lateinit var btnSaveData: Button
 
@@ -26,7 +26,7 @@ class InsertionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_insertion)
 
         etBankName = findViewById(R.id.etBankName)
-        etEmpAge = findViewById(R.id.etEmpAge)
+        etBankBranch = findViewById(R.id.etBankBranch)
         etBankAmount = findViewById(R.id.etBankAmount)
         btnSaveData = findViewById(R.id.btnSave)
 
@@ -42,7 +42,7 @@ class InsertionActivity : AppCompatActivity() {
 
         //Geting Values
         val bankName = etBankName.text.toString()
-        val bankBranch = etEmpAge.text.toString()
+        val bankBranch = etBankBranch.text.toString()
         val bankAmount = etBankAmount.text.toString()
 
         //validation
@@ -50,7 +50,7 @@ class InsertionActivity : AppCompatActivity() {
             etBankName.error = "Please enter name"
         }
         if (bankBranch.isEmpty()) {
-            etEmpAge.error = "Please enter age"
+            etBankBranch.error = "Please enter age"
         }
         if (bankAmount.isEmpty()) {
             etBankAmount.error = "Please enter salary"
@@ -67,7 +67,7 @@ class InsertionActivity : AppCompatActivity() {
 
                 //clear data after insert
                 etBankName.text.clear()
-                etEmpAge.text.clear()
+                etBankBranch.text.clear()
                 etBankAmount.text.clear()
 
             }.addOnFailureListener { err ->

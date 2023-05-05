@@ -16,7 +16,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
     private lateinit var tvBankId: TextView
     private lateinit var tvBankName: TextView
-    private lateinit var tvEmpAge: TextView
+    private lateinit var tvBankBranch: TextView
     private lateinit var tvBankAmount: TextView
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
@@ -68,7 +68,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
     private fun initView() {
         tvBankId = findViewById(R.id.tvBankId)
         tvBankName = findViewById(R.id.tvBankName)
-        tvEmpAge = findViewById(R.id.tvEmpAge)
+        tvBankBranch = findViewById(R.id.tvBankBranch)
         tvBankAmount = findViewById(R.id.tvBankAmount)
 
         btnUpdate = findViewById(R.id.btnUpdate)
@@ -79,7 +79,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         //passing data
         tvBankId.text = intent.getStringExtra("bankId")
         tvBankName.text = intent.getStringExtra("bankName")
-        tvEmpAge.text = intent.getStringExtra("bankBranch")
+        tvBankBranch.text = intent.getStringExtra("bankBranch")
         tvBankAmount.text = intent.getStringExtra("bankAmount")
 
     }
@@ -96,14 +96,14 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         mDialog.setView(mDialogView)
 
         val etBankName = mDialogView.findViewById<EditText>(R.id.etBankName)
-        val etEmpAge = mDialogView.findViewById<EditText>(R.id.etEmpAge)
+        val etBankBranch = mDialogView.findViewById<EditText>(R.id.etBankBranch)
         val etBankAmount = mDialogView.findViewById<EditText>(R.id.etBankAmount)
 
         val btnUpdateData = mDialogView.findViewById<Button>(R.id.btnUpdateData)
 
         //update
         etBankName.setText(intent.getStringExtra("bankName").toString())
-        etEmpAge.setText(intent.getStringExtra("bankBranch").toString())
+        etBankBranch.setText(intent.getStringExtra("bankBranch").toString())
         etBankAmount.setText(intent.getStringExtra("bankAmount").toString())
 
         mDialog.setTitle("Updating $bankName Record")
@@ -115,7 +115,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
             updateEmpData(
                 bankId,
                 etBankName.text.toString(),
-                etEmpAge.text.toString(),
+                etBankBranch.text.toString(),
                 etBankAmount.text.toString()
             )
 
@@ -123,7 +123,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
             //we are setting updated data to our textviews
             tvBankName.text = etBankName.text.toString()
-            tvEmpAge.text = etEmpAge.text.toString()
+            tvBankBranch.text = etBankBranch.text.toString()
             tvBankAmount.text = etBankAmount.text.toString()
 
             alertDialog.dismiss()
