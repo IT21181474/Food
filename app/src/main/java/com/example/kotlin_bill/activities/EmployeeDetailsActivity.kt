@@ -14,10 +14,10 @@ import com.google.firebase.database.FirebaseDatabase
 
 class EmployeeDetailsActivity : AppCompatActivity() {
 
-    private lateinit var tvEmpId: TextView
-    private lateinit var tvEmpName: TextView
+    private lateinit var tvBankId: TextView
+    private lateinit var tvBankName: TextView
     private lateinit var tvEmpAge: TextView
-    private lateinit var tvEmpSalary: TextView
+    private lateinit var tvBankAmount: TextView
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
 
@@ -31,14 +31,14 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
         btnUpdate.setOnClickListener {
             openUpdateDialog(
-                intent.getStringExtra("empId").toString(),
-                intent.getStringExtra("empName").toString()
+                intent.getStringExtra("bankId").toString(),
+                intent.getStringExtra("bankName").toString()
             )
         }
 
         btnDelete.setOnClickListener {
             deleteRecord(
-                intent.getStringExtra("empId").toString()
+                intent.getStringExtra("bankId").toString()
             )
         }
 
@@ -66,10 +66,10 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
 
     private fun initView() {
-        tvEmpId = findViewById(R.id.tvEmpId)
-        tvEmpName = findViewById(R.id.tvEmpName)
+        tvBankId = findViewById(R.id.tvBankId)
+        tvBankName = findViewById(R.id.tvBankName)
         tvEmpAge = findViewById(R.id.tvEmpAge)
-        tvEmpSalary = findViewById(R.id.tvEmpSalary)
+        tvBankAmount = findViewById(R.id.tvBankAmount)
 
         btnUpdate = findViewById(R.id.btnUpdate)
         btnDelete = findViewById(R.id.btnDelete)
@@ -77,16 +77,16 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
     private fun setValuesToViews() {
         //passing data
-        tvEmpId.text = intent.getStringExtra("empId")
-        tvEmpName.text = intent.getStringExtra("empName")
-        tvEmpAge.text = intent.getStringExtra("empAge")
-        tvEmpSalary.text = intent.getStringExtra("empSalary")
+        tvBankId.text = intent.getStringExtra("bankId")
+        tvBankName.text = intent.getStringExtra("bankName")
+        tvEmpAge.text = intent.getStringExtra("bankBranch")
+        tvBankAmount.text = intent.getStringExtra("bankAmount")
 
     }
 
     private fun openUpdateDialog(
-        empId: String,
-        empName: String
+        bankId: String,
+        bankName: String
 
     ) {
         val mDialog = AlertDialog.Builder(this)
@@ -95,36 +95,36 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
         mDialog.setView(mDialogView)
 
-        val etEmpName = mDialogView.findViewById<EditText>(R.id.etEmpName)
+        val etBankName = mDialogView.findViewById<EditText>(R.id.etBankName)
         val etEmpAge = mDialogView.findViewById<EditText>(R.id.etEmpAge)
-        val etEmpSalary = mDialogView.findViewById<EditText>(R.id.etEmpSalary)
+        val etBankAmount = mDialogView.findViewById<EditText>(R.id.etBankAmount)
 
         val btnUpdateData = mDialogView.findViewById<Button>(R.id.btnUpdateData)
 
         //update
-        etEmpName.setText(intent.getStringExtra("empName").toString())
-        etEmpAge.setText(intent.getStringExtra("empAge").toString())
-        etEmpSalary.setText(intent.getStringExtra("empSalary").toString())
+        etBankName.setText(intent.getStringExtra("bankName").toString())
+        etEmpAge.setText(intent.getStringExtra("bankBranch").toString())
+        etBankAmount.setText(intent.getStringExtra("bankAmount").toString())
 
-        mDialog.setTitle("Updating $empName Record")
+        mDialog.setTitle("Updating $bankName Record")
 
         val alertDialog = mDialog.create()
         alertDialog.show()
 
         btnUpdateData.setOnClickListener {
             updateEmpData(
-                empId,
-                etEmpName.text.toString(),
+                bankId,
+                etBankName.text.toString(),
                 etEmpAge.text.toString(),
-                etEmpSalary.text.toString()
+                etBankAmount.text.toString()
             )
 
             Toast.makeText(applicationContext, "Employee Data Updated", Toast.LENGTH_LONG).show()
 
             //we are setting updated data to our textviews
-            tvEmpName.text = etEmpName.text.toString()
+            tvBankName.text = etBankName.text.toString()
             tvEmpAge.text = etEmpAge.text.toString()
-            tvEmpSalary.text = etEmpSalary.text.toString()
+            tvBankAmount.text = etBankAmount.text.toString()
 
             alertDialog.dismiss()
 

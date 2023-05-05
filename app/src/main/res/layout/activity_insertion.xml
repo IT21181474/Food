@@ -9,7 +9,7 @@
     >
 
     <EditText
-        android:id="@+id/etEmpName"
+        android:id="@+id/etBankName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -30,10 +30,10 @@
         android:hint="Enter age"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmpName" />
+        app:layout_constraintTop_toBottomOf="@+id/etBankName" />
 
     <EditText
-        android:id="@+id/etEmpSalary"
+        android:id="@+id/etBankAmount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -52,5 +52,5 @@
         android:text="Save Data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmpSalary" />
+        app:layout_constraintTop_toBottomOf="@+id/etBankAmount" />
 </androidx.constraintlayout.widget.ConstraintLayout>

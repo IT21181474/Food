@@ -13,9 +13,9 @@ import com.google.firebase.database.FirebaseDatabase
 class InsertionActivity : AppCompatActivity() {
     //initializing variables
 
-    private lateinit var etEmpName: EditText
+    private lateinit var etBankName: EditText
     private lateinit var etEmpAge: EditText
-    private lateinit var etEmpSalary: EditText
+    private lateinit var etBankAmount: EditText
     private lateinit var btnSaveData: Button
 
     private lateinit var dbRef: DatabaseReference
@@ -25,9 +25,9 @@ class InsertionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insertion)
 
-        etEmpName = findViewById(R.id.etEmpName)
+        etBankName = findViewById(R.id.etBankName)
         etEmpAge = findViewById(R.id.etEmpAge)
-        etEmpSalary = findViewById(R.id.etEmpSalary)
+        etBankAmount = findViewById(R.id.etBankAmount)
         btnSaveData = findViewById(R.id.btnSave)
 
         dbRef = FirebaseDatabase.getInstance().getReference("BankDB")
@@ -41,34 +41,34 @@ class InsertionActivity : AppCompatActivity() {
     private fun saveEmployeeData() {
 
         //Geting Values
-        val empName = etEmpName.text.toString()
-        val empAge = etEmpAge.text.toString()
-        val empSalary = etEmpSalary.text.toString()
+        val bankName = etBankName.text.toString()
+        val bankBranch = etEmpAge.text.toString()
+        val bankAmount = etBankAmount.text.toString()
 
         //validation
-        if (empName.isEmpty()) {
-            etEmpName.error = "Please enter name"
+        if (bankName.isEmpty()) {
+            etBankName.error = "Please enter name"
         }
-        if (empAge.isEmpty()) {
+        if (bankBranch.isEmpty()) {
             etEmpAge.error = "Please enter age"
         }
-        if (empSalary.isEmpty()) {
-            etEmpSalary.error = "Please enter salary"
+        if (bankAmount.isEmpty()) {
+            etBankAmount.error = "Please enter salary"
         }
 
         //genrate unique ID
-        val empId = dbRef.push().key!!
+        val bankId = dbRef.push().key!!
 
-        val employee = EmployeeModel(empId, empName, empAge, empSalary)
+        val employee = EmployeeModel(bankId, bankName, bankBranch, bankAmount)
 
-        dbRef.child(empId).setValue(employee)
+        dbRef.child(bankId).setValue(employee)
             .addOnCompleteListener {
                 Toast.makeText(this,"data insert successfully",Toast.LENGTH_SHORT).show()
 
                 //clear data after insert
-                etEmpName.text.clear()
+                etBankName.text.clear()
                 etEmpAge.text.clear()
-                etEmpSalary.text.clear()
+                etBankAmount.text.clear()
 
             }.addOnFailureListener { err ->
                 Toast.makeText(this,"Error ${err.message}",Toast.LENGTH_SHORT).show()
