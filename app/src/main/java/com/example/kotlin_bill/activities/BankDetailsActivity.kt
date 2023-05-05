@@ -14,10 +14,10 @@ import com.google.firebase.database.FirebaseDatabase
 
 class BankDetailsActivity : AppCompatActivity() {
 
-    private lateinit var tvBankId: TextView
-    private lateinit var tvBankName: TextView
-    private lateinit var tvBankBranch: TextView
-    private lateinit var tvBankAmount: TextView
+    private lateinit var tvCardId: TextView
+    private lateinit var tvCardName: TextView
+    private lateinit var tvCardNumber: TextView
+    private lateinit var tvCardDate: TextView
     private lateinit var tvCardCvv: TextView
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
@@ -32,14 +32,14 @@ class BankDetailsActivity : AppCompatActivity() {
 
         btnUpdate.setOnClickListener {
             openUpdateDialog(
-                intent.getStringExtra("bankId").toString(),
-                intent.getStringExtra("bankName").toString()
+                intent.getStringExtra("cardId").toString(),
+                intent.getStringExtra("cardName").toString()
             )
         }
 
         btnDelete.setOnClickListener {
             deleteRecord(
-                intent.getStringExtra("bankId").toString()
+                intent.getStringExtra("cardId").toString()
             )
         }
 
@@ -67,10 +67,10 @@ class BankDetailsActivity : AppCompatActivity() {
 
 
     private fun initView() {
-        tvBankId = findViewById(R.id.tvBankId)
-        tvBankName = findViewById(R.id.tvBankName)
-        tvBankBranch = findViewById(R.id.tvBankBranch)
-        tvBankAmount = findViewById(R.id.tvBankAmount)
+        tvCardId = findViewById(R.id.tvCardId)
+        tvCardName = findViewById(R.id.tvCardName)
+        tvCardNumber = findViewById(R.id.tvCardNumber)
+        tvCardDate = findViewById(R.id.tvCardDate)
         tvCardCvv = findViewById(R.id.tvCardCvv)
 
         btnUpdate = findViewById(R.id.btnUpdate)
@@ -79,17 +79,17 @@ class BankDetailsActivity : AppCompatActivity() {
 
     private fun setValuesToViews() {
         //passing data
-        tvBankId.text = intent.getStringExtra("bankId")
-        tvBankName.text = intent.getStringExtra("bankName")
-        tvBankBranch.text = intent.getStringExtra("bankBranch")
-        tvBankAmount.text = intent.getStringExtra("bankAmount")
+        tvCardId.text = intent.getStringExtra("cardId")
+        tvCardName.text = intent.getStringExtra("cardName")
+        tvCardNumber.text = intent.getStringExtra("cardNumber")
+        tvCardDate.text = intent.getStringExtra("cardDate")
         tvCardCvv.text = intent.getStringExtra("cardCvv")
 
     }
 
     private fun openUpdateDialog(
-        bankId: String,
-        bankName: String
+        cardId: String,
+        cardName: String
 
     ) {
         val mDialog = AlertDialog.Builder(this)
@@ -98,39 +98,39 @@ class BankDetailsActivity : AppCompatActivity() {
 
         mDialog.setView(mDialogView)
 
-        val etBankName = mDialogView.findViewById<EditText>(R.id.etBankName)
-        val etBankBranch = mDialogView.findViewById<EditText>(R.id.etBankBranch)
-        val etBankAmount = mDialogView.findViewById<EditText>(R.id.etBankAmount)
+        val etCardName = mDialogView.findViewById<EditText>(R.id.etCardName)
+        val etCardNumber = mDialogView.findViewById<EditText>(R.id.etCardNumber)
+        val etCardDate = mDialogView.findViewById<EditText>(R.id.etCardDate)
         val etCardCvv = mDialogView.findViewById<EditText>(R.id.etCardCvv)
 
         val btnUpdateData = mDialogView.findViewById<Button>(R.id.btnUpdateData)
 
         //update
-        etBankName.setText(intent.getStringExtra("bankName").toString())
-        etBankBranch.setText(intent.getStringExtra("bankBranch").toString())
-        etBankAmount.setText(intent.getStringExtra("bankAmount").toString())
+        etCardName.setText(intent.getStringExtra("cardName").toString())
+        etCardNumber.setText(intent.getStringExtra("cardNumber").toString())
+        etCardDate.setText(intent.getStringExtra("cardDate").toString())
         etCardCvv.setText(intent.getStringExtra("cardCvv").toString())
 
-        mDialog.setTitle("Updating $bankName Record")
+        mDialog.setTitle("Updating $cardName Record")
 
         val alertDialog = mDialog.create()
         alertDialog.show()
 
         btnUpdateData.setOnClickListener {
             updateEmpData(
-                bankId,
-                etBankName.text.toString(),
-                etBankBranch.text.toString(),
-                etBankAmount.text.toString(),
+                cardId,
+                etCardName.text.toString(),
+                etCardNumber.text.toString(),
+                etCardDate.text.toString(),
                 etCardCvv.text.toString()
             )
 
             Toast.makeText(applicationContext, "Card Data Updated", Toast.LENGTH_LONG).show()
 
             //we are setting updated data to our textviews
-            tvBankName.text = etBankName.text.toString()
-            tvBankBranch.text = etBankBranch.text.toString()
-            tvBankAmount.text = etBankAmount.text.toString()
+            tvCardName.text = etCardName.text.toString()
+            tvCardNumber.text = etCardNumber.text.toString()
+            tvCardDate.text = etCardDate.text.toString()
             tvCardCvv.text = etCardCvv.text.toString()
 
             alertDialog.dismiss()
