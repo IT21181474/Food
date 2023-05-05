@@ -49,6 +49,7 @@ class CardInsertionActivity : AppCompatActivity() {
         val cardCvv = etCardCvv.text.toString()
 
         //validation
+        if(cardName.isEmpty() || cardNumber.isEmpty() || cardDate.isEmpty() || cardCvv.isEmpty()){
         if (cardName.isEmpty()) {
             etCardName.error = "Please enter card Name"
         }
@@ -61,7 +62,9 @@ class CardInsertionActivity : AppCompatActivity() {
         if (cardCvv.isEmpty()) {
             etCardDate.error = "Please enter cvv"
         }
-
+            Toast.makeText(this, "Some areas are not filled", Toast.LENGTH_LONG).show()
+        }
+        else{
         //genrate unique ID
         val cardId = dbRef.push().key!!
 
@@ -83,4 +86,4 @@ class CardInsertionActivity : AppCompatActivity() {
 
     }
 
-}
+}}
