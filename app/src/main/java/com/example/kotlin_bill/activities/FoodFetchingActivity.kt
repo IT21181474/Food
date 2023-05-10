@@ -8,63 +8,63 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_bill.R
-import com.example.kotlin_bill.adapters.CardAdapter
-import com.example.kotlin_bill.models.CardModel
+import com.example.kotlin_bill.adapters.FoodAdapter
+import com.example.kotlin_bill.models.FoodModel
 import com.google.firebase.database.*
 
-class CardFetchingActivity : AppCompatActivity() {
+class FoodFetchingActivity : AppCompatActivity() {
 
     private lateinit var empRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
-    private lateinit var empList: ArrayList<CardModel>
+    private lateinit var donateList: ArrayList<FoodModel>
     private lateinit var dbRef: DatabaseReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_card_fetching)
+        setContentView(R.layout.activity_food_fetching)
 
         empRecyclerView = findViewById(R.id.rvEmp)
         empRecyclerView.layoutManager = LinearLayoutManager(this)
         empRecyclerView.setHasFixedSize(true)
         tvLoadingData = findViewById(R.id.tvLoadingData)
 
-        empList = arrayListOf<CardModel>()
+        donateList = arrayListOf<FoodModel>()
 
-        getCardData()
+        getDonateData()
 
 
     }
 
-    private fun getCardData() {
+    private fun getDonateData() {
 
         empRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
-        dbRef = FirebaseDatabase.getInstance().getReference("PaymentDB")
+        dbRef = FirebaseDatabase.getInstance().getReference("FoodDB")
 
         dbRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-               empList.clear()
+               donateList.clear()
                 if (snapshot.exists()){
                     for (empSnap in snapshot.children){
-                        val empData = empSnap.getValue(CardModel::class.java)
-                        empList.add(empData!!)
+                        val empData = empSnap.getValue(FoodModel::class.java)
+                        donateList.add(empData!!)
                     }
-                    val mAdapter = CardAdapter(empList)
+                    val mAdapter = FoodAdapter(donateList)
                     empRecyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListener(object : CardAdapter.onItemClickListener{
+                    mAdapter.setOnItemClickListener(object : FoodAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
-                            val intent = Intent(this@CardFetchingActivity, CardDetailsActivity::class.java)
+                            val intent = Intent(this@FoodFetchingActivity, FoodDetailsActivity::class.java)
 
                             //put extra(passing data to another activity)
-                            intent.putExtra("cardId", empList[position].cardId)
-                            intent.putExtra("cardName", empList[position].cardName)
-                            intent.putExtra("cardNumber", empList[position].cardNumber)
-                            intent.putExtra("cardDate", empList[position].cardDate)
-                            intent.putExtra("cardCvv", empList[position].cardCvv)
+                            intent.putExtra("donateId", donateList[position].donateId)
+                            intent.putExtra("donateName", donateList[position].donateName)
+                            intent.putExtra("donateDate", donateList[position].donateDate)
+                            intent.putExtra("donateTime", donateList[position].donateTime)
+                            intent.putExtra("donateFood", donateList[position].donateFood)
                             startActivity(intent)
                         }
 

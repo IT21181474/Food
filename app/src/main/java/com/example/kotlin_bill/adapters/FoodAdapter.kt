@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_bill.R
-import com.example.kotlin_bill.models.CardModel
+import com.example.kotlin_bill.models.FoodModel
 
-class CardAdapter(private val empList: ArrayList<CardModel>) :
-    RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+class FoodAdapter(private val donateList: ArrayList<FoodModel>) :
+    RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 
@@ -22,22 +22,22 @@ class CardAdapter(private val empList: ArrayList<CardModel>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_list_item, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.food_list_item, parent, false)
         return ViewHolder(itemView, mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentEmp = empList[position]
-        holder.tvCardName.text = currentEmp.cardName
+        val currentEmp = donateList[position]
+        holder.tvDonateName.text = currentEmp.donateName
     }
 
     override fun getItemCount(): Int {
-        return empList.size
+        return donateList.size
     }
 
     class ViewHolder(itemView: View, clickListener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
-        val tvCardName : TextView = itemView.findViewById(R.id.tvCardName)
+        val tvDonateName : TextView = itemView.findViewById(R.id.tvDonateName)
 
         init {
             itemView.setOnClickListener {

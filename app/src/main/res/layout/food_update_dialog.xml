@@ -6,39 +6,41 @@
     android:padding="10dp">
 
     <EditText
-        android:id="@+id/etCardName"
+        android:id="@+id/etDonateName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Card Name"
+        android:hint="Donate Name"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/etCardNumber"
+        android:id="@+id/etDonateDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Card Number"
-        android:maxLength="16"/>
+        android:hint="Donate Date"
+        android:inputType="date"
+        android:maxLength="10"/>
 
     <EditText
-        android:id="@+id/etCardDate"
+        android:id="@+id/etDonateTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Exp Date"
-        android:inputType="date" />
+        android:maxLength="5"
+        android:hint="Time"
+        android:inputType="time" />
 
     <EditText
-        android:id="@+id/etCardCvv"
+        android:id="@+id/etDonateFood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="CVV"
-        android:maxLength="3"
+        android:hint="Food"
+
         android:inputType="textPersonName" />
 
     <Button
@@ -47,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/yellow"
         android:text="Update Data" />
 
 
