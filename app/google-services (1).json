@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "72416011580",
+    "firebase_url": "https://sharefood-e7cb4-default-rtdb.firebaseio.com",
+    "project_id": "sharefood-e7cb4",
+    "storage_bucket": "sharefood-e7cb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72416011580:android:e4559b9f41cff4a5eaea39",
+        "android_client_info": {
+          "package_name": "com.example.distribution"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWR1neF03e2qCoy-HderMbIiqEv_1EOxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72416011580:android:d1380a0983f62a6deaea39",
+        "android_client_info": {
+          "package_name": "com.example.fooddonation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWR1neF03e2qCoy-HderMbIiqEv_1EOxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72416011580:android:fdaece8e198b660ceaea39",
+        "android_client_info": {
+          "package_name": "com.example.kotlin_bill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWR1neF03e2qCoy-HderMbIiqEv_1EOxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72416011580:android:91bc6b6c3c0edbcbeaea39",
+        "android_client_info": {
+          "package_name": "com.example.sharefood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWR1neF03e2qCoy-HderMbIiqEv_1EOxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72416011580-2i18vptgsa879q8pgr3f7ivi0qdidf3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

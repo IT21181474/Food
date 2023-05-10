@@ -31,8 +31,8 @@ class FoodInsertionActivity : AppCompatActivity() {
         etDonateTime = findViewById(R.id.etDonateTime)
         etDonateFood = findViewById(R.id.etDonateFood)
         btnSaveData = findViewById(R.id.btnSave)
-
-        dbRef = FirebaseDatabase.getInstance().getReference("FoodDB")
+//database initialize
+        dbRef = FirebaseDatabase.getInstance().getReference("shareFood")
 
         btnSaveData.setOnClickListener {
             saveDonateData()
@@ -42,7 +42,7 @@ class FoodInsertionActivity : AppCompatActivity() {
 
     private fun saveDonateData() {
 
-        //Geting Values
+        //Getting Values
         val donateName = etDonateName.text.toString()
         val donateDate = etDonateDate.text.toString()
         val donateTime = etDonateTime.text.toString()
@@ -60,13 +60,13 @@ class FoodInsertionActivity : AppCompatActivity() {
             etDonateTime.error = "Please enter Time"
         }
         if (donateFood.isEmpty()) {
-            etDonateTime.error = "Please enter Food"
+            etDonateFood.error = "Please enter Food"
         }
             Toast.makeText(this, "Some areas are not filled", Toast.LENGTH_LONG).show()
         }
         else{
 
-        //genrate unique ID
+        //generate unique ID
         val donateId = dbRef.push().key!!
 
         val card = FoodModel(donateId, donateName, donateDate, donateTime, donateFood)
