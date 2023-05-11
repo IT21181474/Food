@@ -12,7 +12,7 @@
     <dimen name="product_btn_title_description_left_margin">10dp</dimen>
     <dimen name="product_btn_title_description_top_margin">10dp</dimen>
 
-<!-- Volunteers   -->
+<!-- Volunteer   -->
     <string name="app_name">Volunteers Management</string>
     <string name="Create">Profile</string>
     <string name="View">View_profile</string>
