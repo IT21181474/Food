@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="352dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="@dimen/normal_btn_corner"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginBottom="15dp"
+    app:cardBackgroundColor="@color/yellow">
+
+    <LinearLayout
+        android:id="@+id/food"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:background="@drawable/round_corners"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.427">
+
+        <TextView
+            android:id="@+id/food_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/product_btn_title_description_left_margin"
+            android:layout_marginTop="@dimen/product_btn_title_description_top_margin"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Rice"
+            android:textColor="@color/black"
+            android:textSize="@dimen/product_btn_title_font_size" />
+
+        <TextView
+            android:id="@+id/food_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="@dimen/product_btn_title_description_top_margin"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center_vertical|end"
+            android:text="50%"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
