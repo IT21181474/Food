@@ -25,4 +25,18 @@
     <color name="yellow">#FFBA08</color>
     <color name="red">#9D0208</color>
 
+    <!-- Volunteers -->
+    <color name="textc">#C51407</color>
+    <color name="backg">#FFFFFF</color>
+    <color name="backg1">#FFFFFF</color>
+    <color name="image">#F48C06</color>
+    <color name="empty" />
+    <color name="backlog">#F48C08</color>
+    <color name="name100">#FFBA08</color>
+    <color name="password100">#FABA08</color>
+    <color name="text200">#000000</color>
+    <color name="tex">#FABA08</color>
+    <color name="btn3">#9D0208</color>
+    <color name="btnc">#FABA08</color>
+
 </resources>
