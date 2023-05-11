@@ -9,4 +9,19 @@
     <string name="distribution">Distribution</string>
     <string name="donate1">Donate</string>
     <string name="delete_donate">delete_donate</string>
+
+    <!--  Stock Management  -->
+    <string name="topic_dashboard">Stock Dashboard</string>
+    <string name="topic_view_food">Foods</string>
+    <string name="topic_add_food">Add Food</string>
+    <string name="edit_food">Edit Food</string>
+
+    <string name="btn_view">View Foods</string>
+    <string name="btn_add">Add Foods</string>
+    <string name="btn_update_food">Update</string>
+    <string name="btn_delete_food">Delete</string>
+
+    <string name="food_name">Food Name</string>
+    <string name="quntity">Quantity</string>
+    <string name="expected_quantity">Expected Quantity</string>
 </resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodUpdateDialogBox">
+
+    <EditText
+        android:id="@+id/etUpdateFoodName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="@string/food_name"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/material_dynamic_neutral60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etUpdateFoodQty"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="@string/quntity"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/material_dynamic_neutral60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUpdateFoodName" />
+
+    <EditText
+        android:id="@+id/etUpdateFoodExpQty"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="@string/expected_quantity"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/material_dynamic_neutral60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUpdateFoodQty" />
+
+    <Button
+        android:id="@+id/btnUpdateFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="@dimen/normal_btn_width"
+        android:height="@dimen/normal_btn_height"
+        android:backgroundTint="@color/yellow"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/btn_update_food"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_btn_font_size"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUpdateFoodExpQty"
+        app:layout_constraintVertical_bias="0.161" />
+</androidx.constraintlayout.widget.ConstraintLayout>
