@@ -69,9 +69,9 @@ class FoodInsertionActivity : AppCompatActivity() {
         //generate unique ID
         val donateId = dbRef.push().key!!
 
-        val card = FoodModel(donateId, donateName, donateDate, donateTime, donateFood)
+        val food = FoodModel(donateId, donateName, donateDate, donateTime, donateFood)
 
-        dbRef.child(donateId).setValue(card)
+        dbRef.child(donateId).setValue(food)
             .addOnCompleteListener {
                 Toast.makeText(this,"data insert successfully",Toast.LENGTH_SHORT).show()
 

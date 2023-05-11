@@ -49,7 +49,7 @@ class FoodDetailsActivity : AppCompatActivity() {
     private fun deleteRecord(
         id: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("FoodDB").child(id)
+        val dbRef = FirebaseDatabase.getInstance().getReference("shareFood").child(id)
         val mTask = dbRef.removeValue()
 
         mTask.addOnSuccessListener {
@@ -147,7 +147,7 @@ class FoodDetailsActivity : AppCompatActivity() {
         time: String,
         food: String
     ){
-        val dbRef = FirebaseDatabase.getInstance().getReference("FoodDB").child(id)
+        val dbRef = FirebaseDatabase.getInstance().getReference("shareFood").child(id)
         val donateInfo = FoodModel(id, name, date, time, food)
         dbRef.setValue(donateInfo)
     }
