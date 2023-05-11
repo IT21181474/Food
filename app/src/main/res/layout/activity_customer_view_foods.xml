@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background_image"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerViewCatergory">
+
+    <LinearLayout
+        android:id="@+id/category"
+        android:layout_width="352dp"
+        android:layout_height="104dp"
+        android:background="@drawable/round_corners"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.628">
+
+        <TextView
+            android:id="@+id/food_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/product_btn_title_description_left_margin"
+            android:layout_marginTop="@dimen/product_btn_title_description_top_margin"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Wheat"
+            android:textColor="@color/black"
+            android:textSize="@dimen/product_btn_title_font_size" />
+
+        <TextView
+            android:id="@+id/food_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="@dimen/product_btn_title_description_top_margin"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center_vertical|end"
+            android:text="50%"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category"
+        android:layout_width="352dp"
+        android:layout_height="104dp"
+        android:background="@drawable/round_corners"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837">
+
+        <TextView
+            android:id="@+id/food_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/product_btn_title_description_left_margin"
+            android:layout_marginTop="@dimen/product_btn_title_description_top_margin"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Wheat"
+            android:textColor="@color/black"
+            android:textSize="@dimen/product_btn_title_font_size" />
+
+        <TextView
+            android:id="@+id/food_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="@dimen/product_btn_title_description_top_margin"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center_vertical|end"
+            android:text="50%"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="287dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            app:srcCompat="@drawable/bike_ride" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/view_food_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/topic_view_food"
+        android:textColor="@color/black"
+        android:textSize="@dimen/topic_font"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
+</androidx.constraintlayout.widget.ConstraintLayout>
